@@ -43,13 +43,15 @@ def show_animation():
     for frame in animation_frames:
         print(frame)
         time.sleep(0.1)
+        
+    print ("\n")
 
 # Add a pretty banner
 print("-" * 50)
-print("Welcome to PortEye Port Scanner")
+print("Welcome to PortEye....")
 print("-" * 50)
-print("PortEye - Your Ultimate Port Scanner")
-print("\n")
+print("PortEye - Your Ultimate Port Scanner.")
+print("\n"}
 
 def scan_port(port):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
