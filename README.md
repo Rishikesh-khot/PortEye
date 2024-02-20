@@ -22,6 +22,10 @@ PortEye is a lightweight and efficient network port scanner designed for fast an
 ## Example
 
 ```bash
-sudo python3 ps.py 192.168.1.1
+sudo python3 port_scanning-with nmap module.py 192.168.1.1
+
+or
+
+sudo python3 port_scanning-without nmap module.py 192.168.1.1
 
 Make sure to replace `<target-ip>` with the actual target IP address. Adjust the content as needed and add any additional sections or information you find relevant.
