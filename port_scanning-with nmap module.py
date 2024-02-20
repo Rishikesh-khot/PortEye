@@ -5,7 +5,6 @@ import sys
 import socket
 import concurrent.futures
 import time
-from datetime import datetime
 import nmap
 
 # Check for sudo permissions
@@ -36,7 +35,7 @@ animation_frames = [
     "   / ____|   /\\    |  \\/  |  ____|  / __ \\ \\    / /  ____|  __ \\",
     "  | |  __   /  \\   | \\  / | |__    | |  | \\ \\  / /| |__  | |__) |",
     "  | | |_ | / /\\ \\  | |\\/| |  __|   | |  | |\\ \\/ / |  __| |  _  /",
-    "  | |__| |/ ____ \\ | |  | | |____  | |__| | \\  /  | |____| | \ \ ",
+    "  | |__| |/ ____ \\ | |  | | |____  | |__| | \  /  | |____| | \ \ ",
     "   \\_____/_/    \\_\\|_|  |_|______|  \\____/   \\/   |______|_|  \\_\\",
 ]
 
@@ -44,13 +43,14 @@ def show_animation():
     for frame in animation_frames:
         print(frame)
         time.sleep(0.1)
+        
+    print ("\n")
 
 # Add a pretty banner
 print("-" * 50)
-print("Welcome to PortEye")
+print("Welcome to PortEye....")
 print("-" * 50)
-print("PortEye - Your Port Scanner")
-print ("\n")
+print("PortEye - Your Ultimate Port Scanner.")
 
 def scan_port(port):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -59,7 +59,7 @@ def scan_port(port):
     if result == 0:
         open_port = f"\033[92mPort {port} is open\033[0m"
         print(open_port)
-    
+
         # Attempt to grab the banner or service version
         try:
             service = grab_service(target, port)
@@ -68,9 +68,9 @@ def scan_port(port):
 
         except Exception as e:
             print(f"Error while grabbing service for Port {port}: {e}")
-    
+
     s.close()
-    
+
 def grab_service(ip, port, timeout=2):
     nm = nmap.PortScanner()
     nm.scan(ip, str(port), arguments='-sV')
@@ -84,18 +84,22 @@ try:
     with concurrent.futures.ThreadPoolExecutor() as executor:
         for port in range(0, 1000):  # Extended port range
             executor.submit(scan_port, port)
-        
+
 except KeyboardInterrupt:
     print("\nExiting program.")
     sys.exit()
-    
+
 except socket.error as e:
     print(f"Error: {e}")
     sys.exit()
-            
+
 except Exception as e:
     print(f"An unexpected error occurred: {e}")
     sys.exit()
-                        
+
 finally:
-    print("Scan results displayed on the console.")
+    print("\n\n" + "-" * 50)
+    print("Game Over")
+    print("-" * 50)
+    print("\nScan results displayed on the console.")
+
