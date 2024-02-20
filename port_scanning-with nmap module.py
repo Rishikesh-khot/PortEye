@@ -47,9 +47,10 @@ def show_animation():
 
 # Add a pretty banner
 print("-" * 50)
-print("Welcome to Port Scanner 3000")
+print("Welcome to PortEye")
 print("-" * 50)
-print("Green Port Scanner")
+print("PortEye - Your Port Scanner")
+print ("\n")
 
 def scan_port(port):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -98,4 +99,3 @@ except Exception as e:
                         
 finally:
     print("Scan results displayed on the console.")
-
