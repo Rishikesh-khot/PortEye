@@ -51,6 +51,7 @@ print("-" * 50)
 print("Welcome to PortEye....")
 print("-" * 50)
 print("PortEye - Your Ultimate Port Scanner.")
+print("\n")
 
 def scan_port(port):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -98,8 +99,5 @@ except Exception as e:
     sys.exit()
 
 finally:
-    print("\n\n" + "-" * 50)
-    print("Game Over")
-    print("-" * 50)
     print("\nScan results displayed on the console.")
 
